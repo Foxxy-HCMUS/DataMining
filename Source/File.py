@@ -66,7 +66,7 @@ class ColumnFile:
         data = DataFile.getInstance(filename).data.copy()
         self.data = []
         self.filename = filename
-        for i in range(4):
+        for i in range(len(data[0])):
             self.data.append([])
 
         for row in data:
