@@ -10,10 +10,18 @@ class MakeFile:
         file.close()
 
 class DataFile:
+    """
+    lưu file ở dạng dòng
+    singleton implementation
+    lấy data bằng cách gọi hàm getInstance()
+    """
     _df = None
 
     @staticmethod
     def getInstance(filename):
+        """
+        trả về dữ liệu của file ở dạng list
+        """
         if DataFile._df is None:
             DataFile._df = DataFile(filename)
         return DataFile._df
@@ -38,3 +46,31 @@ class DataFile:
 
             self.data.append(row1)
         file.close()
+
+class ColumnFile:
+    """
+    lưu file ở dạng cột
+    """
+    _cf = None 
+
+    @staticmethod
+    def getInstance(filename):
+        """
+        trả về dữ liệu của file ở dạng list, tổng hợp theo cột
+        """
+        if ColumnFile._cf is None:
+            ColumnFile._cf = ColumnFile(filename)
+        return ColumnFile._cf
+
+    def __init__(self, filename):
+        data = DataFile.getInstance(filename).data.copy()
+        self.data = []
+        self.filename = filename
+        for i in range(4):
+            self.data.append([])
+
+        for row in data:
+            i = 0
+            while i < len(data[0]):
+                self.data[i].append(row[i])
+                i += 1
