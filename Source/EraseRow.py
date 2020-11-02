@@ -2,17 +2,19 @@ import File as file
 
 class EraseRow:
     @staticmethod
-    def eraseRow(filename, rate):
+    def eraseRow(fileIn, rate, fileOut):
+        """xoá dòng bị thiếu dữ liệu. sau khi xoá xong thì xuất ra file mới nếu cần
+
+        Args:
+            fileIn (string): tên file cần xoá dòng 
+            rate (float): tỷ lệ dữ liệu thiếu tối thiểu để xoá
+            fileOut (string): tên file kết quả
         """
-        xoá các dòng bị thiếu dữ liệu với tỉ lệ cho trước
-        xuất kết quả sau khi xoá ra file đích
-        """
-        data = file.DataFile.getInstance(filename).data.copy()
+        data = file.RowFile.getInstance(fileIn).data.copy()
         i = 0
         while i < len(data):
             count = 0
             for j in range(len(data[i])):
-                print(data[i][j], i, j)
                 if data[i][j] == '':
                     count += 1
 
@@ -22,4 +24,4 @@ class EraseRow:
 
             i += 1
 
-        file.MakeFile.makeFile('afterRowErasing.csv', data)
+        file.MakeFile.makeRowFile(fileOut, data)
