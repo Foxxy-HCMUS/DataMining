@@ -10,7 +10,7 @@ class MakeFile:
         """
         file = open(filename, 'w')
         for row in data:
-            file.write(row[0])
+            file.write(str(row[0]))
             for i in range(1, len(row)):
                 file.write(',' + str(row[i]))
             file.write('\n')
