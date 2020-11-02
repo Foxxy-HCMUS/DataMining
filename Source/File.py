@@ -1,6 +1,13 @@
 class MakeFile:
     @staticmethod
-    def makeFile(filename, data):
+    def makeRowFile(filename, data):
+        """tạo file từ dữ liệu được lưu theo từng dòng.
+        Chỉ cần ghi từng dòng lên file
+
+        Args:
+            filename (string): tên file output
+            data (list): dữ liệu của file
+        """
         file = open(filename, 'w')
         for row in data:
             file.write(row[0])
@@ -9,7 +16,25 @@ class MakeFile:
             file.write('\n')
         file.close()
 
-class DataFile:
+    @staticmethod
+    def makeColumnFile(filename, data):
+        """tạo file từ dữ liệu được lưu theo từng cột
+
+        Args:
+            filename (string): tên file output
+            data (list): dữ liệu của file
+        """
+        rowData = []
+        for i in range(len(data[0])):
+            rowData.append([])
+
+        for i in range(len(data)):
+            for j in range(len(data[0])):
+                rowData[j].append(data[i][j])
+
+        MakeFile.makeRowFile(filename, rowData)
+
+class RowFile:
     """
     lưu file ở dạng dòng
     singleton implementation
@@ -19,12 +44,17 @@ class DataFile:
 
     @staticmethod
     def getInstance(filename):
+        """trả về 1 instance của RowFile (chứa dữ liệu của file ở dạng row)
+
+        Args:
+            filename (string): tên file
+
+        Returns:
+            RowFile: đối tượng chứa dữ liệu của file theo dòng
         """
-        trả về dữ liệu của file ở dạng list
-        """
-        if DataFile._df is None:
-            DataFile._df = DataFile(filename)
-        return DataFile._df
+        if RowFile._df is None:
+            RowFile._df = RowFile(filename)
+        return RowFile._df
 
     def __init__(self, filename):
         self.filename = filename
@@ -50,20 +80,27 @@ class DataFile:
 class ColumnFile:
     """
     lưu file ở dạng cột
+    singleton implementation
+    lấy data bằng cách gọi hàm getInstance()
     """
     _cf = None 
 
     @staticmethod
     def getInstance(filename):
-        """
-        trả về dữ liệu của file ở dạng list, tổng hợp theo cột
+        """trả về 1 instance của ColumnFile (chứa dữ liệu của file ở dạng column)
+
+        Args:
+            filename (string): tên file
+
+        Returns:
+            ColumnFile: đối tượng chứa dữ liệu của file theo cột
         """
         if ColumnFile._cf is None:
             ColumnFile._cf = ColumnFile(filename)
         return ColumnFile._cf
 
     def __init__(self, filename):
-        data = DataFile.getInstance(filename).data.copy()
+        data = RowFile.getInstance(filename).data.copy()
         self.data = []
         self.filename = filename
         for i in range(len(data[0])):
