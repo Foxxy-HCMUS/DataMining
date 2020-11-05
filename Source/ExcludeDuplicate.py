@@ -1,6 +1,7 @@
 import File as file
 
 class ExcludeDuplicate:
+    @staticmethod
     def ExcludeDuplicate(fileIn, fileOut):
         """Loại bỏ dòng trùng lặp trong dataset
 

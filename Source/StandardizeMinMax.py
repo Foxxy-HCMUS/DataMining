@@ -4,7 +4,7 @@ class StandardizeMinMax:
     """Chuẩn hoá dữ liệu theo phương pháp Min-Max
     """
 
-
+    @staticmethod
     def CalculateMinMax(min_i, max_i, value):
         """tính toán giá trị mới của value đầu vào
 
@@ -18,6 +18,7 @@ class StandardizeMinMax:
         """
         return (value-min_i)/(max_i-min_i)*(1-0)+0
 
+    @staticmethod
     def StandardizeMinMax(fileIn, fileOut):
         """chuẩn hoá giá trị số trong file fileIn
         Xuất kết quả ra file fileOut
@@ -62,4 +63,4 @@ class StandardizeMinMax:
         return oldList
 
 
-StandardizeMinMax.StandardizeMinMax('test.csv', 'min-max.csv')
+StandardizeMinMax.StandardizeMinMax('./house-prices.csv', './min-max.csv')

@@ -1,6 +1,7 @@
 import File as file
 
 class StandardizeZScore:
+    @staticmethod
     def StandardizeZScore(fileIn, fileOut):
         """chuẩn hoá dữ liệu dạng số bằng phương pháp z-scores
 
@@ -55,5 +56,4 @@ class StandardizeZScore:
         return oldList
 
 
-# StandardizeZScore.StandardizeZScore('house-prices.csv')
-StandardizeZScore.StandardizeZScore('test.csv', 'z.csv')
+StandardizeZScore.StandardizeZScore('./house-prices.csv', 'z.csv')
