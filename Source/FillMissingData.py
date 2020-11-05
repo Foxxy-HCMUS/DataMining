@@ -82,7 +82,9 @@ class FillMissingData:
         file.MakeFile.makeColumnFile(fileOut, self.data)
 
 if __name__ == '__main__':
-    f = FillMissingData('./test.csv')
+    pass
+    # f = FillMissingData('./house-prices.csv')
     # print(f.getMean(f.data[4]))
     # print(f.getMode(f.data[4]))
-    f.fillDataFile('mean', './mean.csv')
+    # f.fillDataFile('median', './median.csv')
+    # print(file.ColumnFile.getInstance('./house-prices.csv').data[72])

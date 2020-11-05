@@ -1,2 +1,7 @@
 # DataMining-Lab1
-1 chiếc teammate nhẹ cho đời có thêm chút màu 
+
+Tiền xử lý dữ liệu với Weka  
+
+## Tìm hiểu về giao diện Explorer của Weka  
+
+- 
