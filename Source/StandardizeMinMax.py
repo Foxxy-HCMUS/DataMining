@@ -16,6 +16,8 @@ class StandardizeMinMax:
         Returns:
             float: giá trị sau khi chuẩn hoá theo thang [0, 1]
         """
+        if (max_i-min_i)<=0.000000000001 :
+            return max_i
         return (value-min_i)/(max_i-min_i)*(1-0)+0
 
     @staticmethod
@@ -51,6 +53,9 @@ class StandardizeMinMax:
                     newList.pop(j)
                     j -= 1
                 j += 1
+
+            if len(newList)==0:
+                continue
 
             if isNumber == True:
                 a = min(newList)
