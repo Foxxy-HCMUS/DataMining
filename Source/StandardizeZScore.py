@@ -1,27 +1,25 @@
 import File as file
 
-
 class StandardizeZScore:
-
     def StandardizeZScore(filename):
         oldList = file.ColumnFile.getInstance(filename).data.copy()
         a = []
         b = []
         for i in range(len(oldList)):
             newList = oldList[i][1:]
-            isnumber = True
+            isNumber = True
             j = 0
             while j in range(len(newList)):
                 if (newList[j] != ''):
                     if(type(newList[j]) != int and type(newList[j]) != float):
-                        isnumber = False
+                        isNumber = False
                         break
                 else:
                     newList.pop(j)
                     j -= 1
                 j += 1
 
-            if isnumber == True:
+            if isNumber == True:
                 if len(newList) == 0:
                     continue
                 mean = sum(newList)/len(newList)
@@ -36,9 +34,8 @@ class StandardizeZScore:
                     if oldList[i][j] != '':
                         oldList[i][j] = (oldList[i][j]-mean)/var
 
-            pass
-
-        pass
+        file.MakeFile.makeColumnFile('./z.csv', oldList)
 
 
-StandardizeZScore.StandardizeZScore('house-prices.csv')
+# StandardizeZScore.StandardizeZScore('house-prices.csv')
+StandardizeZScore.StandardizeZScore('test.csv')
