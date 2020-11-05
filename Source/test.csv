@@ -1,8 +1,6 @@
 id,ho ten,mssv,lop,diem,favoriteColor
 id0,ten0,0,l0,1,green
-id0,ten0,0,l0,1,green
 id1,ten1,1,l1,10,green
-id1,ten1,1,l1,10,green
-id2,ten2,2,l2,10,
-id3,ten3,3,l3,,
-id4,ten4,4,l4,,black
+id2,ten2,2,l2,10,yellow
+id3,ten3,3,l3,5,blue
+id4,ten4,4,l4,9,black
