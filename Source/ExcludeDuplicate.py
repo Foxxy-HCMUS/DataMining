@@ -14,6 +14,7 @@ class ExcludeDuplicate:
 
         #Dùng tính chất của set để loại bỏ trùng lặp
         newList = set(tuple(x) for x in oldList[1:])
+        newList=list(list(x)for x in newList)
 
         #Ép kiểu về List
         newList=sorted(newList)
@@ -22,4 +23,4 @@ class ExcludeDuplicate:
         newList.insert(0,oldList[0])
 
         return newList
-
+ExcludeDuplicate.ExcludeDuplicate("house-prices.csv")
