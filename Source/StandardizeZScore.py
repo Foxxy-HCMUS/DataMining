@@ -81,4 +81,4 @@ class StandardizeZScore:
         return oldList
 
 
-StandardizeZScore.StandardizeZScore('./house-prices.csv', 'z.csv','Street')
+# StandardizeZScore.StandardizeZScore('./house-prices.csv', 'z.csv','Street')

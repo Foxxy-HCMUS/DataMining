@@ -27,4 +27,4 @@ class EraseColumn:
         file.MakeFile.makeColumnFile(fileOut, data)
 
 
-EraseColumn.eraseColumn('./test.csv', 0.1, 'column.csv') 
+# EraseColumn.eraseColumn('./test.csv', 0.1, 'column.csv') 
