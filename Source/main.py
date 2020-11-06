@@ -56,8 +56,11 @@ def run(arguments):
             sMinMax.StandardizeMinMax(fileIn, fileOut, attribute)
         else:
             printError(f'Do not recognize method {method}')
-    elif type == 'cau8':
-        pass
+    elif type == 'expression':
+        if fileIn is None or fileOut is None:
+            return
+
+        ca.CalculateAttribute(fileIn, fileOut)
     else:
         printError(f'Do not recognize type {type}')
         return
