@@ -15,17 +15,19 @@ class CalculateAttribute:
         return 'nummeric'
 
 
-    def CalculateAttribute(filename):
+    def CalculateAttribute(fileIn, fileOut):
         """xử lý các yêu cầu tính toán giữa các thuộc tính
+        Xuất file sau khi xử lý xong
 
         Args:
-            filename (string): tên file chứa data đầu vào
+            fileIn (string): tên file chứa data đầu vào
+            fileOut (string): tên file chứa data đầu ra
 
         Returns:
-            list: list chứa data mới???
+            list: list chứa data cũ kèm thêm 1 cột thể hiện kết quả biểu thức
         """
 
-        oldList=file.RowFile.getInstance(filename).data.copy()
+        oldList=file.RowFile.getInstance(fileIn).data.copy()
 
         req=input("Nhập vào phép tính cần tính: ")
 
@@ -37,7 +39,7 @@ class CalculateAttribute:
 
         for i in oldList[0]:
             if i in req:
-                typeOfAtt=CalculateAttribute.getDataTypeAttribute(filename,i)
+                typeOfAtt=CalculateAttribute.getDataTypeAttribute(fileIn,i)
                 if typeOfAtt==None:
                     print("Thuộc tính bạn yêu cầu bị thiếu dữ liệu")
                     return
@@ -58,7 +60,8 @@ class CalculateAttribute:
 
         oldList[0].append(req)
 
-        print(oldList)
+        # print(oldList)
+        file.MakeFile.makeColumnFile(fileOut, oldList)
         return oldList
 
 
