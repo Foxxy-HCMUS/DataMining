@@ -1,5 +1,6 @@
 \documentclass[a4paper, 12pt]{article}
 
+\usepackage{multirow}
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{enumerate}
 \usepackage{graphicx}
@@ -24,14 +25,14 @@
 \begin{titlepage}
     \begin{center}
         \vspace*{1cm}
-        \Large\textbf{Báo cáo Lab\#1}\\
+        \Large\textbf{Trường Đại học Khoa học Tự nhiên\\Đại học Quốc gia TP.HCM}\\
 
         \vfill
         \line(1,0){450}\\[4mm]
         \LARGE\textbf{\MakeUppercase{Tiền xử lý dữ liệu}}\\[3mm]
         \Large{Khai thác dữ liệu \& Ứng dụng}\\[3mm]
         \Large{Nguyễn Bảo Long - MSSV: 18120201}\\
-        \Large{Huỳnh Long Nam - MSSV: ...}
+        \Large{Huỳnh Long Nam - MSSV: 18120212}
         \line(1,0){430}\\
         \vfill
 
@@ -44,18 +45,50 @@
 \thispagestyle{empty}
 \clearpage
 
-\section{Thông tin thành viên nhóm}
-\begin{table}[H]
-    \begin{center}
-        \begin{tabular}{|c|c|c|c|}
-        \hline
-        STT & Họ tên          & MSSV     & Email                         \\ \hline
-        1   & Nguyễn Bảo Long & 18120201 & 18120201@student.hcmus.edu.vn \\ \hline
-        2   & Huỳnh Long Nam  &          & @student.hcmus.edu.vn         \\ \hline
-        \end{tabular}
-        \caption{Bảng thông tin thành viên nhóm}
-    \end{center}
-\end{table}
+\section{Thông tin chung}
+
+\begin{enumerate}
+    \item Link GitHub: \url{https://github.com/baolongnguyenmac/DataMining-Lab1}
+    \item Thông tin thành viên nhóm
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|}
+            \hline
+            STT & Họ tên          & MSSV     & Email                         \\ \hline
+            1   & Nguyễn Bảo Long & 18120201 & 18120201@student.hcmus.edu.vn \\ \hline
+            2   & Huỳnh Nam Long  & 18120212 & 18120212@student.hcmus.edu.vn         \\ \hline
+            \end{tabular}
+            \caption{Bảng thông tin thành viên nhóm}
+        \end{center}
+    \end{table}
+
+    \item Tỷ lệ tham gia công việc
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{|c|c|c|l|c|}
+            \hline
+            STT & MSSV     & \multicolumn{2}{c|}{Công việc}                & Tỷ lệ hoàn thành \\ \hline
+            1 & \begin{tabular}[c]{@{}c@{}}18120201\\ 18120212\end{tabular} & Yêu cầu 1                  & Cài đặt Weka                     & 100\% \\ \hline
+            2 & 18120212                                                    & \multirow{3}{*}{Yêu cầu 2} & Đọc dữ liệu vào Weka             & 100\% \\ \cline{1-2} \cline{4-5} 
+            3   & 18120212 &  & Khám phá tập dữ liệu Weather               & 100\%            \\ \cline{1-2} \cline{4-5} 
+            3   & 18120201 &  & Khám phá tập dữ liệu tín dụng Đức          & 100\%            \\ \hline
+            4 & 18120201                                                    & \multirow{8}{*}{Yêu cầu 3} & Liệt kê các cột bị thiếu dữ liệu & 100\% \\ \cline{1-2} \cline{4-5} 
+            5   & 18120201 &  & Đếm số dòng bị thiếu dữ liệu               & 100\%            \\ \cline{1-2} \cline{4-5} 
+            6   & 18120201 &  & Điền giá trị bị thiếu                      & 100\%            \\ \cline{1-2} \cline{4-5} 
+            7   & 18120201 &  & Xoá các dòng bị thiếu với ngưỡng cho trước & 100\%            \\ \cline{1-2} \cline{4-5} 
+            8   & 18120201 &  & Xoá các cột bị thiếu với ngưỡng cho trước  & 100\%            \\ \cline{1-2} \cline{4-5} 
+            9   & 18120212 &  & Xoá các mẫu bị trùng lặp                   & 100\%            \\ \cline{1-2} \cline{4-5} 
+            10  & 18120212 &  & Chuẩn hoá một thuộc tính                   & 100\%            \\ \cline{1-2} \cline{4-5} 
+            11  & 18120212 &  & Tính giá trị biểu thức                     & 100\%            \\ \hline
+            12  & 18120201 & \multicolumn{2}{l|}{Viết tham số dòng lệnh}   & 100\%            \\ \hline
+            13  & 18120201 & \multicolumn{2}{l|}{Trình bày báo cáo}        & 100\%            \\ \hline
+            \end{tabular}
+            \caption{Bảng phân chia công việc và mức độ hoàn thành}
+        \end{center}
+    \end{table}
+\end{enumerate}
+
+\clearpage
 
 \section{Yêu cầu 1: Cài đặt Weka}
 \subsection{Giao diện chức năng Explorer sau khi cài đặt Weka}
@@ -70,9 +103,9 @@
 \begin{enumerate}
     \item Ý nghĩa nhóm lệnh điều khiển trong tab PreProcess
     \begin{itemize}
-        \item Current relation (tạm dịch 'Quan hệ hiện tại'): Cho biết các thông tin chung về tập dữ liệu hiện tại như tên tập dữ liệu, số mẫu, số thuộc tính
-        \item Attributes (tạm dịch 'Thuộc tính'): Cho biết danh sách các thuộc tính hiện tại trong tập dữ liệu
-        \item Selected attribute (tạm dịch 'Thuộc tính được chọn'): Cho biết thông tin chung liên quan đến thống kê (trong TH dữ liệu là dạng số) như trung bình cộng, giá trị min, giá trị max của thuộc tính đã được chọn trước trong phần \textbf{Attributes}. Đối với dữ liệu dạng định danh, Weka sẽ cung cấp danh sách các định danh và số lượng mỗi định danh
+        \item Current relation (tạm dịch `Quan hệ hiện tại'): Cho biết các thông tin chung về tập dữ liệu hiện tại như tên tập dữ liệu, số mẫu, số thuộc tính
+        \item Attributes (tạm dịch `Thuộc tính'): Cho biết danh sách các thuộc tính hiện tại trong tập dữ liệu
+        \item Selected attribute (tạm dịch `Thuộc tính được chọn'): Cho biết thông tin chung liên quan đến thống kê (trong TH dữ liệu là dạng số) như trung bình cộng, giá trị min, giá trị max của thuộc tính đã được chọn trước trong phần \textbf{Attributes}. Đối với dữ liệu dạng định danh, Weka sẽ cung cấp danh sách các định danh và số lượng mỗi định danh
     \end{itemize}
 
     \item Ý nghĩa của các tabs
@@ -81,7 +114,7 @@
         \item Classify: Phân lớp dữ liệu
         \item Cluster: Gom cụm dữ liệu
         \item Associate: Khai phá các luật kết hợp
-        \item Select Attributes: Lựa chọn thuộc tính
+        \item Select Attributes: Lựa chọn thuộc tính. Sử dụng khi cần xem xét mối tương quan giữa các thuộc tính
         \item Visualize: Trực quan hoá dữ liệu
     \end{itemize}
 \end{enumerate}
@@ -110,7 +143,7 @@
             \end{center}
         \end{figure}
 
-        \item Có 2 thuộc tính bị thiếu dữ liệu là \textbf{node\_caps} và \textbf{breast\_quad}. Trong đó, \textbf{node\_caps} thiếu nhiều nhất (thiếu 8, tương đương 3\%) và \textbf{breast\_quad} thiếu ít nhất (thiếu 1, tương đương gần 0\%)
+        \item Có 2 thuộc tính bị thiếu dữ liệu là \textbf{node\_caps} và \textbf{breast\_quad}. Trong đó, \textbf{node\_caps} thiếu nhiều nhất (thiếu 8 mẫu, tương đương 3\%) và \textbf{breast\_quad} thiếu ít nhất (thiếu 1 mẫu, tương đương gần 0\%)
         \begin{figure}[H]
             \begin{center}
                 \includegraphics[scale = 0.65]{images/breast_quad_missingData.png}
@@ -155,6 +188,14 @@
     \end{figure}
 
     \item Thuật ngữ sử dụng cho các đồ thị ở tab Visualize là đồ thị phân tán (scatter plot)
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[scale = 0.5]{images/weatherScatterPlot.png}
+            \caption{Đồ thị phân tán của các thuộc tính trong tập dữ liệu Weather}
+        \end{center}
+    \end{figure}
+
+    \item Dựa vào các đồ thị quan sát được, theo phán đoán của nhóm, cặp dữ liệu \textit{outlook - play} có vẻ như tương quan với nhau
 \end{itemize}
 
 \subsection{Khám phá tập dữ liệu Tín dụng Đức}
@@ -223,11 +264,13 @@
             \item $Value(A)$ là tập tất cả các giá trị có thể có đối với thuộc tính $A$
             \item $S_v$ là tập con của $S$ mà $A$ có giá trị là $v$
         \end{itemize}
+
+        \item Ngoài ra còn rất nhiều options để lọc thuộc tính tuỳ theo ý đồ của người sử dụng.
     \end{itemize}
 
     \item Theo như mô tả trên thì việc chọn \textbf{GainRatioAttributeEval} hay \textbf{InfoGainAttributeEval} đều cho biết về các thuộc tính có tương quan cao nhất đối với thuộc tính lớp. Trong báo cáo, người viết chọn \textbf{InfoGainAttributeEval} để chọn các thuộc tính này.
     \begin{itemize}
-        \item Bước 1: Chọn vào tab Select attributes. Tại mục Attribute Evaluator, chọn \textbf{InfoGainAttributeEval}. Tại mục Search Method, chọn \textbf{Ranker}
+        \item Bước 1: Chọn vào tab Select attributes. Tại mục Attribute Evaluator, chọn \textbf{InfoGain\\AttributeEval}. Tại mục Search Method, chọn \textbf{Ranker}
         \begin{figure}[H]
             \begin{center}
                 \includegraphics[scale = 0.35]{images/selectAttributeCreditG.png}
@@ -235,7 +278,7 @@
             \end{center}
         \end{figure}
         \item Bước 2: Nhấn nút Start
-        \item Bước 3: Đoc kết quả
+        \item Bước 3: Đọc kết quả
         \begin{figure}[H]
             \begin{center}
                 \includegraphics[scale = 0.35]{images/creditG_result.png}
