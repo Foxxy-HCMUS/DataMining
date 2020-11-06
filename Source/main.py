@@ -1,4 +1,3 @@
-import File as file
 from ExcludeDuplicate import ExcludeDuplicate as ed
 from StandardizeMinMax import StandardizeMinMax as sMinMax
 from StandardizeZScore import StandardizeZScore as sZScore
@@ -13,48 +12,48 @@ import argparse
 def printError(str):
     print(str + '\n')
 
-def run(args):
-    type = args['-type']
-    method = args['-method']
-    fileIn = args['-filein']
-    fileOut = args['-fileout']
-    rate = args['-rate']
-    attribute = args['-attribute']
+def run(arguments):
+    type = arguments['type']
+    method = arguments['method']
+    fileIn = arguments['filein']
+    fileOut = arguments['fileout']
+    rate = arguments['rate']
+    attribute = arguments['attribute']
 
     if type == 'fillmissingdata':
         if fileIn is None or method is None or fileOut is None:
-            printError('Missing args')
+            printError('Missing arguments')
             return
 
         fill = fd(fileIn)
         fill.fillDataFile(method, fileOut)
     elif type == 'eraserow':
         if fileIn is None or rate is None or fileOut is None:
-            printError('Missing args')
+            printError('Missing arguments')
             return
 
         er.eraseRow(fileIn, float(rate), fileOut)
     elif type == 'erasecolumn':
         if fileIn is None or rate is None or fileOut is None:
-            printError('Missing args')
+            printError('Missing arguments')
             return
 
-        ec.eraseColumn(fileIn, rate, fileOut)
+        ec.eraseColumn(fileIn, float(rate), fileOut)
     elif type == 'eraseduplicaterow':
         if fileIn is None or fileOut is None:
-            printError('Missing args')
+            printError('Missing arguments')
             return
 
         ed.ExcludeDuplicate(fileIn, fileOut)
     elif type == 'standardize':
-        if method is None or fileOut is None or fileIn is None:
-            printError('Missing args')
+        if method is None or fileOut is None or fileIn is None or attribute is None:
+            printError('Missing arguments')
             return
 
         if method == 'zscore':
-            sZScore.StandardizeZScore(fileIn, fileOut)
+            sZScore.StandardizeZScore(fileIn, fileOut, attribute)
         elif method == 'minmax':
-            sMinMax.StandardizeMinMax(fileIn, fileOut)
+            sMinMax.StandardizeMinMax(fileIn, fileOut, attribute)
         else:
             printError(f'Do not recognize method {method}')
     elif type == 'cau8':
@@ -76,33 +75,7 @@ if __name__ == "__main__":
 
     ap.add_argument('-attribute')
 
-    args = argparse.ArgumentParser()
+    arguments = vars(ap.parse_args())
 
-    # print(args)
+    run(arguments)
 
-    run(args)
-
-# import argparse
-
-# ap = argparse.ArgumentParser()
-
-# ap.add_argument("-n", "--name")
-
-# ap.add_argument("-a", "--age")
-
-# ap.add_argument("-s", "--sex")
-
-# args = vars(ap.parse_args())
-
-# # if args["name"] is not None:
-# #     print(args["name"])
-
-# # if args["age"] is not None:
-# #     print(args["age"])
-
-# # if args["sex"] is not None:
-# #     print(args["sex"])
-
-# print(args["name"])
-# print(args["age"])
-# print(args["sex"])
