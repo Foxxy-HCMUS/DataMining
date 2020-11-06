@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3bb9177-e535-4661-8bb4-a2a38b30eb85" name="Default Changelist" comment="" />
+    <list default="true" id="b3bb9177-e535-4661-8bb4-a2a38b30eb85" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CalculateAttribute.py" beforeDir="false" afterPath="$PROJECT_DIR$/CalculateAttribute.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -177,22 +180,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="516" y="268" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.824@0.0.1536.824" timestamp="1604311755884" />
-    <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1604591737527">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1604658571347">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1604591737527" />
-    <state width="1515" height="210" key="GridCell.Tab.0.center" timestamp="1604591737527">
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1604658571347" />
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1604591922916">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1604591737527" />
-    <state width="1515" height="210" key="GridCell.Tab.0.left" timestamp="1604591737527">
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1604591922916" />
+    <state width="1515" height="210" key="GridCell.Tab.0.center" timestamp="1604591922916">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1604591737527" />
-    <state width="1515" height="210" key="GridCell.Tab.0.right" timestamp="1604591737527">
+    <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1604591922916" />
+    <state width="1515" height="210" key="GridCell.Tab.0.left" timestamp="1604591922916">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1604591737527" />
+    <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1604591922916" />
+    <state width="1515" height="210" key="GridCell.Tab.0.right" timestamp="1604591922916">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1604591922916" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1604571821024">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -209,10 +216,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1604571821024" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1604587092901">
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1604658527423">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1604587092901" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1604658527423" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
