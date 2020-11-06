@@ -61,7 +61,7 @@ class CalculateAttribute:
         oldList[0].append(req)
 
         # print(oldList)
-        file.MakeFile.makeColumnFile(fileOut, oldList)
+        file.MakeFile.makeRowFile(fileOut, oldList)
         return oldList
 
 
