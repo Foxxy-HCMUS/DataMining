@@ -16,11 +16,13 @@ class CalculateAttribute:
 
 
     def CalculateAttribute(filename):
-        """
-            Hàm xử lý các yêu cầu tính toán giữa các Attribute
-            Input:
-            Ouput: None
+        """xử lý các yêu cầu tính toán giữa các thuộc tính
 
+        Args:
+            filename (string): tên file chứa data đầu vào
+
+        Returns:
+            list: list chứa data mới???
         """
 
         oldList=file.RowFile.getInstance(filename).data.copy()
@@ -53,14 +55,12 @@ class CalculateAttribute:
             except:
                 print("Bạn nhập chưa đúng định dạng!")
                 break
-            pass
+
         oldList[0].append(req)
 
         print(oldList)
         return oldList
 
-        pass
 
 
-
-CalculateAttribute.CalculateAttribute("house-prices.csv")
+# CalculateAttribute.CalculateAttribute("house-prices.csv")

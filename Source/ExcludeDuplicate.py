@@ -30,4 +30,4 @@ class ExcludeDuplicate:
 
         return newList
 
-ExcludeDuplicate.ExcludeDuplicate("house-prices.csv")
+# ExcludeDuplicate.ExcludeDuplicate("house-prices.csv", "eraseDuplicateRow.csv")
