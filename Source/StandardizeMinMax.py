@@ -63,4 +63,4 @@ class StandardizeMinMax:
         return oldList
 
 
-StandardizeMinMax.StandardizeMinMax('./house-prices.csv', './min-max.csv')
+# StandardizeMinMax.StandardizeMinMax('./house-prices.csv', './min-max.csv')
