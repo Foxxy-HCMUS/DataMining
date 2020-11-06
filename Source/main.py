@@ -20,7 +20,21 @@ def run(arguments):
     rate = arguments['rate']
     attribute = arguments['attribute']
 
-    if type == 'fillmissingdata':
+    if type == 'listmissingdata':
+        if fileIn is None:
+            printError('Missing arguments')
+            return
+
+        print('Danh sách cột bị thiếu dữ liệu: ', end = '')
+        print(lc.listMissingDataColumn(fileIn))
+    elif type == 'countmissingdata':
+        if fileIn is None:
+            printError('Missing arguments')
+            return
+
+        print('Số dòng bị thiếu dữ liệu: ', end = '')
+        print(cr.countMissingDataRow(fileIn))
+    elif type == 'fillmissingdata':
         if fileIn is None or method is None or fileOut is None:
             printError('Missing arguments')
             return
