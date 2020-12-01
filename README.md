@@ -15,3 +15,8 @@ Khai thác luật kết hợp trên tập phổ biến
 - Trước khi rút trích luật, nhóm phải tiền xử lý với các nội dung nêu trên và tiến hành rời rạc hoá dữ liệu (ở đây nhóm chia ra 25 khoảng cho thuộc tính liên tục) để có thể áp dụng thuật toán Apriori
 - Khi áp dụng thuật toán này, cần lưu ý về thông số đánh giá. Nhóm chọn `confidence` làm thông số đánh giá luật với mức `min_confidence` cao và `min_support` thấp. Các thông số được trình bày chi tiết trong báo cáo 
 - Lý do phải chọn như vậy bởi vì tập dữ liệu bị lệch hẳn về phía Churn = False. Trong khi mục tiêu của việc rút trích luật là tìm hiểu sự tác động của các thuộc tính đến việc người dùng từ chối dịch vụ (Churn = True). Do đó, phải hạ mức support xuống để có thể rút trích được các luật cho kết quả True
+
+## Giải thích ý nghĩa một vài folder
+- `Code`: chứa duy nhất một file code để xác định phần trăm huỷ và không huỷ dịch vụ đối với khác khoảng của một thuộc tính nào đó. Mục đích chính là để số hoá biểu đồ trong lúc phân tích sơ bộ tập dữ liệu
+- `Data`: Chứa các file thu thập được trong quá trình rút trích luật, bao gồm: tập luật, file dữ liệu ở dạng Weka có thể đọc được, file dữ liệu churn ở dạng số (không nhớ rõ là để làm gì :v)
+- Các folder còn lại chỉ cần đọc tên là có thể hiểu :v
