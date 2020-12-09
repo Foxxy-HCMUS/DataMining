@@ -67,18 +67,55 @@
         \begin{center}
             \begin{tabular}{|c|c|l|c|}
             \hline
-            STT & MSSV                      & \multicolumn{1}{c|}{Công việc} & Hoàn thành \\ \hline
-            % 1   & \multirow{2}{*}{18120201} & Rút trích luật từ tập dữ liệu  & Đã hoàn thành                \\ \cline{1-1} \cline{3-4} 
-            % 2   &                           & Trình bày báo cáo              & Đã hoàn thành                \\ \hline
-            % 3   & \multirow{2}{*}{18120212} & Tìm hiểu ý nghĩa tập dữ liệu   & Đã hoàn thành                \\ \cline{1-1} \cline{3-4} 
-            % 3   &                           & Tiền xử lý dữ liệu             & Đã hoàn thành                \\ \hline
+            STT & Họ tên                    & \multicolumn{1}{c|}{Công việc}     & Tỷ lệ hoàn thành      \\ \hline
+            1   & \multirow{4}{*}{18120201} & Tiền xử lý dữ liệu                 & \multirow{4}{*}{50\%} \\ \cline{1-1} \cline{3-3}
+            2 &  & Phân lớp dữ liệu bằng Weka Explorer      &  \\ \cline{1-1} \cline{3-3}
+            3 &  & Cài đặt và kiểm thử thuật toán K-Means   &  \\ \cline{1-1} \cline{3-3}
+            4 &  & Trình bày báo cáo                        &  \\ \hline
+            5   & \multirow{3}{*}{18120212} & Phân lớp dữ liệu bằng Experimenter & \multirow{3}{*}{50\%} \\ \cline{1-1} \cline{3-3}
+            6 &  & Đánh giá phương pháp phân lớp            &  \\ \cline{1-1} \cline{3-3}
+            7 &  & Cài đặt và kiểm thử thuật toán K-Medoids &  \\ \hline
             \end{tabular}
             \caption{Bảng phân chia công việc}
         \end{center}
-        \end{table}
+    \end{table}
 \end{enumerate}
 \clearpage
 
-\section{}
+\section{Ý tưởng tiền xử lý dữ liệu}
+
+\begin{itemize}
+    \item Chi tiết quá trình tiền xử lý dữ liệu được trình bày trong file `Preprocess.ipynb'
+    \item Ý tưởng chung
+    \begin{itemize}
+        \item Xoá các thuộc tính có tỷ lệ thiếu dữ liệu lớn hơn hoặc bằng 50\%
+        \item Xoá các dữ liệu dạng IDentification
+        \item Điền giá trị thiếu tại các cột có kiểu dữ liệu dạng số bằng giá trị trung bình 
+        \item Điều giá trị thiếu cho các cột có kiểu dữ liệu định danh bằng giá trị mode
+    \end{itemize}
+\end{itemize}
+\clearpage
+
+\section{Đánh giá phương pháp phân lớp}
+
+\begin{itemize}
+    \item Phương pháp phân lớp nào thường cho kết quả cao nhất?\\
+    $\rightarrow$
+
+    \item Phương pháp nào không thực hiện tốt và tại sao?\\
+    $\rightarrow$
+
+    \item Tại sao ta sử dụng phiên bản đã rời rạc hóa của tập dữ liệu nếu tập dữ liệu đã được rời rạc hóa?\\
+    $\rightarrow$
+    \item Việc rời rạc hóa và cách rời rạc hóa có ảnh hưởng đến kết quả phân lớp hay không, nếu có thì ảnh hưởng thể nào?\\
+    $\rightarrow$
+
+    \item Chiến lược nào trong ba chiến lược đánh giá đã đánh giá quá cao (overestimate) độ chính xác và tại sao?\\
+    $\rightarrow$
+
+    \item Chiến lược nào đánh giá thấp (underestimate) độ chính xác và tại sao?\\
+    $\rightarrow$
+\end{itemize}
+\clearpage
 
 \end{document}
