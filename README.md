@@ -9,4 +9,3 @@
 - [File dữ liệu](https://github.com/baolongnguyenmac/DataMining-Lab1/blob/main/Source/house-prices.csv)  
 - [File test](https://github.com/baolongnguyenmac/DataMining-Lab1/blob/main/Source/test.csv) (là 1 file nhỏ nhỏ để test trước khi chạy chương trình với dữ liệu thật)  
 
-git tag <demo tag>
