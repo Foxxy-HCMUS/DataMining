@@ -13,10 +13,8 @@ Nếu rời rạc hóa quá ít, thì luật rút ra sẽ có độ tin cậy th
 Nếu rời rạc hóa quá nhiều, luật rút ra sẽ quá khớp với bộ dữ liệu train, cây phân lớp sẽ lớn, thuật toán chạy lâu
 5.
 Chiến lược đánh giá Using Traning Test đã đánh giá quá cao độ chính xác. 
-Vì các thuật toán chạy trên bộ dữ liệu huấn luyện nên sẽ cho ra mô hình khớp với bộ dữ liệu huấn luyện,
- nên độ chính xác sẽ cao trên tập huấn luyện
+Vì các thuật toán chạy trên bộ dữ liệu huấn luyện nên sẽ cho ra mô hình khớp với bộ dữ liệu huấn luyện, nên độ chính xác sẽ cao trên tập huấn luyện
 6.
 Chiến lược đánh giá Percentage split với 66% đã đánh giá thấp độ chính xác so với 2 chiến lược đánh giá còn lại, 
-vì mô hình chỉ khớp với với tập train, mà không chắc rằng tập train với tập test tương đồng nhau, nên mô hình sẽ không
-cho kết quả tốt trên tập test
+vì mô hình chỉ khớp với với tập train, mà không chắc rằng tập train với tập test tương đồng nhau, nên mô hình sẽ không cho kết quả tốt trên tập test
 
