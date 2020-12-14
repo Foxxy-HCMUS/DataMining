@@ -1,1 +1,22 @@
+1
 Với cùng một chiến lược đánh giá, J48 cho kết quả cao nhất, ổn định
+2
+ID3 fit với bộ training test nên độ chính xác khi đánh giá sử dụng bộ training test sẽ cho 100%
+Phương pháp ID3 không thực hiện tốt vì nhược điểm của ID3 là sẽ quá khớp với bộ dữ liệu train, nên khi gặp những bộ dữ liệu
+bị nhiễu sẽ làm cây quyết định cồng kềnh và tỉ lệ dự đoán trên tập test thấp
+3
+Vì rời rạc hóa giúp giảm miền giá trị của các thuộc tính khiến cây đơn giản hơn, thuật toán chạy nhanh hơn đồng thời cũng
+khử nhiễu
+4
+Việc rời rạc hóa có ảnh hưởng đến kết quả phân lớp.
+Nếu rời rạc hóa quá ít, thì luật rút ra sẽ có độ tin cậy thấp, hiệu quả phân lớp không cao
+Nếu rời rạc hóa quá nhiều, luật rút ra sẽ quá khớp với bộ dữ liệu train, cây phân lớp sẽ lớn, thuật toán chạy lâu
+5.
+Chiến lược đánh giá Using Traning Test đã đánh giá quá cao độ chính xác. 
+Vì các thuật toán chạy trên bộ dữ liệu huấn luyện nên sẽ cho ra mô hình khớp với bộ dữ liệu huấn luyện,
+ nên độ chính xác sẽ cao trên tập huấn luyện
+6.
+Chiến lược đánh giá Percentage split với 66% đã đánh giá thấp độ chính xác so với 2 chiến lược đánh giá còn lại, 
+vì mô hình chỉ khớp với với tập train, mà không chắc rằng tập train với tập test tương đồng nhau, nên mô hình sẽ không
+cho kết quả tốt trên tập test
+
