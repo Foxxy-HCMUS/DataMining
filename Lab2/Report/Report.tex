@@ -1,0 +1,350 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{multirow}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage[T5]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin = 2cm]{geometry}
+\usepackage{amsfonts, amsmath, amssymb}
+\usepackage[none]{hyphenat}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage[nottoc, notlot, notlof]{tocbibind}
+
+% \captionsetup[table]{skip=5pt}
+\pagestyle{fancy}
+\fancyhead[L]{Trường Đại học Khoa học Tự nhiên - ĐHQG TP.HCM}
+\fancyhead[R]{Nhóm Just $4^{th}$}
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+        \Large\textbf{Đại học Quốc gia TP.HCM\\Trường Đại học Khoa học Tự nhiên}\\
+
+        \vfill
+        \line(1,0){450}\\[4mm]
+        \LARGE\textbf{\MakeUppercase{Khai thác tập phổ biến \\\& luật kết hợp}}\\[3mm]
+        \Large{Khai thác dữ liệu \& Ứng dụng}\\[3mm]
+        \Large{Nguyễn Bảo Long - MSSV: 18120201}\\
+        \Large{Huỳnh Long Nam - MSSV: 18120212}
+        \line(1,0){430}\\
+        \vfill
+
+        \vfill
+        TP Hồ Chí Minh, ngày 14/11/2020
+    \end{center}
+\end{titlepage}
+
+\tableofcontents
+\thispagestyle{empty}
+\clearpage
+
+\section{Thông tin chung}
+
+\begin{enumerate}
+    % \item Link GitHub: \url{https://github.com/baolongnguyenmac/DataMining-Lab2}
+    \item Thông tin thành viên nhóm
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|}
+            \hline
+            STT & Họ tên          & MSSV     & Email                         \\ \hline
+            1   & Nguyễn Bảo Long & 18120201 & 18120201@student.hcmus.edu.vn \\ \hline
+            2   & Huỳnh Nam Long  & 18120212 & 18120212@student.hcmus.edu.vn         \\ \hline
+            \end{tabular}
+            \caption{Bảng thông tin thành viên nhóm}
+        \end{center}
+    \end{table}
+
+    \item Tỷ lệ tham gia công việc
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{|c|c|l|c|}
+            \hline
+            STT & MSSV                      & \multicolumn{1}{c|}{Công việc} & Hoàn thành \\ \hline
+            1   & \multirow{2}{*}{18120201} & Rút trích luật từ tập dữ liệu  & Đã hoàn thành                \\ \cline{1-1} \cline{3-4} 
+            2   &                           & Trình bày báo cáo              & Đã hoàn thành                \\ \hline
+            3   & \multirow{2}{*}{18120212} & Tìm hiểu ý nghĩa tập dữ liệu   & Đã hoàn thành                \\ \cline{1-1} \cline{3-4} 
+            3   &                           & Tiền xử lý dữ liệu             & Đã hoàn thành                \\ \hline
+            \end{tabular}
+            \caption{Bảng phân chia công việc}
+        \end{center}
+        \end{table}
+\end{enumerate}
+\clearpage
+
+\section{Tìm hiểu về tập dữ liệu}
+
+\begin{itemize}
+    \item Số lượng mẫu: 3333
+    \item Số lượng thuộc tính: 21
+    \item Thuộc tính lớp: Churn
+    \item Ý nghĩa của thuôc tính
+    \begin{enumerate}
+        \item State: tên các bang, quận ở Columbia (nominal)
+        \item Account length: thời gian kích hoạt của tài khoản (numeric)
+        \item Area code: mã vùng (nominal)
+        \item Phone number: số điện thoại, có thể thay thế cho ID khách hàng (numeric)
+        \item International Plan: dịch vụ cuộc gọi quốc tế (nominal, gồm 2 giá trị Yes và No)
+        \item VoiceMail Plan: dịch vụ thư thoại (nominal, gồm 2 giá trị Yes và No)
+        \item Number of voice mail messages: số tin nhắn thoại (nominal)
+        \item Total day minutes:  tổng thời gian khách hàng sử dụng vào ban ngày
+        \item Total day calls: tổng số cuộc gọi vào ban ngày
+        \item Total day charge: tổng cước vào ban ngày, dựa vào 2 biến trên
+        \item Total evening minutes: tổng thời gian sử dụng vào buổi tối 
+        \item Total evening calls: tổng số cuộc gọi vào buổi tối
+        \item Total evening charge: tổng cước vào buổi tối, dựa vào 2 biến trên
+        \item Total night minutes: tổng thời gian sử dụng vào ban đêm 
+        \item Total night calls: tổng số cuộc gọi vào ban đêm
+        \item Total night charge: tổng cước vào ban đêm, dựa vào 2 biến trên
+        \item Total international minutes: tổng thời gian gọi quốc tế
+        \item Total international calls: tổng số cuộc gọi quốc tế
+        \item Total international charge: tổng cước quốc tế, dựa vào 2 biến trên
+        \item Number of calls to customer service: số cuộc gọi chăm sóc khách hàng
+        \item Churn: Có hủy dịch vụ hay không
+    \end{enumerate}
+
+    \item Để hiểu tập dữ liệu rõ hơn, cần phải xác định các thuộc tính có ảnh hưởng lớn đến sự phân lớp của thuộc tính lớp `Churn?'
+\end{itemize}
+
+\section{Tiền xử lý}
+
+\subsection{Loại bỏ các thuộc tính có tương quan với nhau}
+
+\begin{itemize}
+    \item Lý do loại bỏ: Nếu không loại bỏ các thuộc tính này, dữ liệu sẽ bị nhấn mạnh quá mức. Trong trường hợp xấu nhất, model có thể không ổn định và cung cấp kết quả không đáng tin cậy
+    \item Phương pháp: 
+    \begin{itemize}
+        \item Sử dụng tab \textit{Visualize} để dự đoán các thuộc tính có tương quan tuyến tính với nhau theo 1 hàm nào đó
+        \begin{figure}[H]
+            \begin{center}
+                \includegraphics[scale=0.5]{image/nightMin_nightCharge.png}
+                \caption{Biểu diễn quan hệ giữa Night Mins (X) và Night Charge (Y)}
+            \end{center}
+        \end{figure}
+
+        \begin{figure}[H]
+            \begin{center}
+                \includegraphics[scale=0.5]{image/dayMin_dayCharge.png}
+                \caption{Biểu diễn quan hệ giữa Day Mins (X) và Day Charge (Y)}
+
+                \includegraphics[scale=0.5]{image/intlMin_intlCharge.png}
+                \caption{Biểu diễn quan hệ giữa Intl Mins (X) và Intl Charge (Y)}
+            \end{center}
+        \end{figure}
+
+        \begin{figure}[H]
+            \begin{center}
+                \includegraphics[scale=0.5]{image/eveMin_eveCharge.png}
+                \caption{Biểu diễn quan hệ giữa Eve Mins (X) và Eve Charge (Y)}
+            \end{center}
+        \end{figure}
+
+        \item Từ 3 hình trên, ta có thể dự đoán: 
+        \begin{itemize}
+            \item Night Mins (X) và Night Charge (Y) có tương quan tuyến tính với nhau
+            \item Day Mins (X) và Day Charge (Y) có tương quan tuyến tính với nhau
+            \item Intl Mins (X) và Intl Charge (Y) có tương quan tuyến tính với nhau
+            \item Eve Mins (X) và Eve Charge (Y) có tương quan tuyến tính với nhau
+        \end{itemize}
+
+        \item Sử dụng tab \textit{Classify} để tìm ra hàm tuyến tính biểu diễn mối tương quan này 
+        \begin{itemize}
+            \item B1: Tại tab \textit{Preprocess}, reomove các thuộc tính không cần xác định mối tương quan. Ví dụ khi muốn xác định mối tương quan giữa Night Mins và Night Charge, cần remove hết các thuộc tính khác chỉ để lại 2 thuộc tính này.
+            \item B2: Tại tab \textit{Classify}, chọn Classifier là \textit{Linear Regression}; sau đó chọn thuộc tính phụ thuộc rồi bấm nút \textit{Start} và đọc kết quả thu được
+        \end{itemize}
+
+        \item Sau khi đã xác định quan hệ giữa các thuộc tính được dự đoán bên trên, ta có các kết quả sau
+        \begin{figure}[H]
+            \begin{center}
+                \includegraphics[scale=0.35]{image/dayClassify.png}
+                \caption{Mối tương quan tuyến tính giữa Day Mins và Day Charge}
+
+                \includegraphics[scale=0.35]{image/eveClassify.png}
+                \caption{Mối tương quan tuyến tính giữa Eve Mins và Eve Charge}
+            \end{center}
+        \end{figure}
+
+        \begin{figure}[H]
+            \begin{center}
+                \includegraphics[scale=0.35]{image/nightClassify.png}
+                \caption{Mối tương quan tuyến tính giữa Night Mins và Night Charge}
+            \end{center}
+        \end{figure}
+
+        \begin{figure}[H]
+            \begin{center}
+                \includegraphics[scale=0.35]{image/intlClassify.png}
+                \caption{Mối tương quan tuyến tính giữa Intl Mins và Intl Charge}
+            \end{center}
+        \end{figure}
+
+        \item Từ kết quả trên, ta có thể bỏ các thuộc tính phụ thuộc \textit{Eve Charge, Day Charge, Night Charge, Intl Charge}
+    \end{itemize}
+\end{itemize}
+
+\subsection{Loại bỏ các thuộc tính dị thường \& thuộc tính index}
+
+\begin{itemize}
+    \item Đối với thuộc tính dị thường: Thuộc tính \textit{State} chứa tên viết tắt của 51 bang nước Mỹ. Nhưng thuộc tính \textit{Area Code} thì chỉ có 3 giá trị: 408, 415, 510 đều là \textit{Area Code} thuộc California. Theo đó, tất cả các khách hàng có trong tập dữ liệu đều sống ở California. Chính điều này gây ra sự `dị thường'
+    \item Đối với thuộc tính index: Trong dataset có thuộc tính \textit{Phone} có thể thay thế cho ID của khách hàng
+    \item Cách xử lý cho các thuộc tính này
+    \begin{itemize}
+        \item Xoá thuộc tính 
+        \item Tham khảo người tạo ra tập dữ liệu để hiểu thêm về thuộc tính này
+    \end{itemize}
+\end{itemize}
+\clearpage
+
+\section{Khám phá dữ liệu}
+
+\subsection{Khám phá dữ liệu dạng nominal}
+
+\begin{itemize}
+    \item Đối với thuộc tính \textit{International Plan}
+    \begin{itemize}
+        \item Nhập vào tên thuộc tính để xác định phần trăm của thuộc tính class tương ứng với mỗi lựa chọn 
+        \item Trong các mẫu \textit{Internatianal Plan = No} (3010 mẫu), có $11.5\%$ huỷ dịch vụ
+        \item Trong các mẫu \textit{Internatianal Plan = Yes} (323 mẫu), có $42.4\%$ huỷ dịch vụ
+        \item Do đó có thể thấy: khách hàng có \textit{Internatianal Plan = Yes} có tỷ lệ huỷ dịch vụ cao hơn khách hàng có \textit{Internatianal Plan = No}
+    \end{itemize}
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[scale=0.75]{image/nominal_intl_Plan.png}
+            \caption{Tỷ lệ huỷ dịch vụ theo thuộc tính International Plan}
+        \end{center}
+    \end{figure}
+
+    \item Đối với thuộc tính \textit{Voice Mail Plan}
+    \begin{itemize}
+        \item Nhập vào tên thuộc tính để xác định phần trăm của thuộc tính class tương ứng với mỗi lựa chọn 
+        \item Trong các mẫu \textit{Voice Mail Plan = No} (2411 mẫu), có $16.7\%$ huỷ dịch vụ
+        \item Trong các mẫu \textit{Voice Mail Plan = Yes} (922 mẫu), có $8.6\%$ huỷ dịch vụ
+        \item Do đó có thể thấy: khách hàng có \textit{Voice Mail Plan = No} có tỷ lệ huỷ dịch vụ cao hơn khách hàng có \textit{Voice Mail Plan = Yes}
+    \end{itemize}
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[scale=0.75]{image/nominal_vmail_plan.png}
+            \caption{Tỷ lệ huỷ dịch vụ theo thuộc tính Voice Mail Plan}
+        \end{center}
+    \end{figure}
+\end{itemize}
+
+\subsection{Khám phá dữ liệu dạng numeric}
+
+\begin{itemize}
+    \item Đối với thuộc tính \textit{Account Length}
+    \begin{itemize}
+        \item Nhập vào tên thuộc tính và số khoảng chia để rời rạc hoá dữ liệu của thuộc tính
+        \item Đọc dữ liệu cho kết quả đầu tiên $[7.4074074074074066, 27, 1.0, 10.0]$: Trong 27 mẫu có giá trị trong khoảng $[1.0, 10.0]$ có $7.4\%$ số mẫu có `Churn?' = True
+        \item Quan sát tỷ lệ phần trăm, ta nhận thấy tỷ lệ khá đồng đều. Do đó không có điều gì đặc biệt có thể tác động đến sự phân lớp ở trong thuộc tính này
+        \item Việc tương tự xảy ra khi chạy chương trình với các thuộc tính \textit{Day Calls, Evening Calls, Night Calls, International Calls, Night Mins, International Mins, Voice Mail Message}
+    \end{itemize}
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[scale=0.7]{image/numeric_accLength.png}
+            \caption{Tỷ lệ huỷ dịch vụ theo thuộc tính Account Plan}
+        \end{center}
+    \end{figure}
+
+    \item Đối với thuộc tính \textit{Day Mins}
+    \begin{itemize}
+        \item Nhập vào tên thuộc tính và số khoảng chia để rời rạc hoá dữ liệu của thuộc tính
+        \item Đọc dữ liệu cho kết quả đầu tiên $[16.666666666666664, 6, 0.0, 12.5]$: Trong 6 mẫu có giá trị trong khoảng $[0.0, 12.5]$ có $16.6\%$ số mẫu có `Churn?' = True
+        \item Quan sát tỷ lệ phần trăm, ta nhận thấy tỷ lệ huỷ dịch vụ tăng khi Day Mins tăng. Như vậy rõ ràng thuộc tính này có thể dùng để dự đoạn kết quả phân lớp `Churn?'
+        \item Việc tương tự xảy ra khi chạy chương trình với các thuộc tính \textit{Eve Mins, Customer Service Calls}
+    \end{itemize}
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[scale=0.7]{image/numeric_dayMins.png}
+            \caption{Tỷ lệ huỷ dịch vụ theo thuộc tính Day Mins}
+        \end{center}
+    \end{figure}
+\end{itemize}
+
+\subsection{Tương quan đa thuộc tính với numeric}
+
+\begin{itemize}
+    \item Service Call cao và Day Mins thấp thì tỷ lệ huỷ dịch vụ cao 
+    \item Day Mins cao thì tỷ lệ huỷ dịch vụ cao 
+\end{itemize}
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[scale=0.25]{image/bla.png}
+        \caption{Tương quan đa thuộc tính giữa Service Call và Day Mins}
+    \end{center}
+\end{figure}
+
+\clearpage
+
+\section{Luật kết hợp}
+
+\begin{itemize}
+    \item Phương pháp đánh giá luật: Việc đánh giá luật được thể hiện qua 2 thông số \textit{support, confidence}
+    \begin{itemize}
+        \item Độ \textit{support} (độ hỗ trợ) đo tần số xuất hiện của phần tử hay tập phần tử. \textit{Min support} (ngưỡng hỗ trợ tối thiểu) là giá trị \textit{support} nhỏ nhất được chỉ định bởi người dùng $$support(A \Rightarrow B) = P(A \cup B)$$
+        \item Độ \textit{confidence} (độ tin cậy) đo tần số xuất hiện của phần tử hay tập phẩn tử trong điều kiện xuất hiện của phần tử hay tập phần tử khác. \textit{Min confidence} (ngưỡng tin cậy tối thiểu) là giá trị \textit{confidence} nhỏ nhất được chỉ định bởi người dùng $$confidence(A \Rightarrow B) = P(B|A)$$
+    \end{itemize}
+
+    \item Chọn tab \textit{Preprocess} để rời rạc hoá dữ liệu bằng cách chọn filter Discretize (trong mục ./filters/unsupervised/Discretize) và tuỳ chỉnh các thông số của bộ lọc như hình
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[scale=0.45]{image/discretize.png}
+            \caption{Tuỳ chỉnh các thông số cho quá trình rời rạc hoá dữ liệu}
+        \end{center}
+    \end{figure}
+
+    \item Chọn tab \textit{Associate}, thuật toán \textit{Apriori} để tiến hành rút trích luật
+    \item Tuỳ chỉnh các thông số \textit{car, lowerBoundMinSupport, metricType, minMetric, numRules, upperBoundMinSupport} như hình để có thể lấy được các luật có \textbf{Churn?=TRUE}
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[scale=0.45]{image/ruleSetup.png}
+            \caption{Tuỳ chỉnh các thông số cho thật toán Apriori}
+        \end{center}
+    \end{figure}
+    
+    \item Kết quả thu được 2842 luật (file luật được đính kèm trong folder Data). Trong đó, có một vài luật rất đáng chú ý khi so sánh với các dự đoán khi phân tích các thuộc tính được trình bày ở các mục trên
+    \begin{itemize}
+        \item \textbf{Rule 6}: \textit{Intl Plan=yes Intl Calls='(1.5-2.5]' 47 ==> Churn?=TRUE 47    conf:(1)}
+        \item \textbf{Rule 51}: \textit{Intl Plan=yes VMail Plan=no Intl Calls='(1.5-2.5]' 35 ==> Churn?=TRUE 35    conf:(1)}
+        \item \textbf{Rule 52}: \textit{Intl Plan=yes VMail Message='(-inf-2]' Intl Calls='(1.5-2.5]' 35 ==> Churn?=TRUE 35    conf:(1)}
+        \item \textbf{Rule 2144}: \textit{VMail Plan=no Day Mins='(274.8-inf)' 98 ==> Churn?=TRUE 82    conf:(0.84)}
+        \item \textbf{Rule 2146}: \textit{VMail Message='(-inf-2]' Day Mins='(274.8-inf)' 98 ==> Churn?=TRUE 82    conf:(0.84)}
+        \item \textbf{Rule: 2752}: \textit{VMail Plan=no CustServ Calls='(3.5-4.5]' 124 ==> Churn?=TRUE 60    conf:(0.48)}
+        \item \textbf{Rule: 2753}: \textit{VMail Message='(-inf-2]' CustServ Calls='(3.5-4.5]' 124 ==> Churn?=TRUE 60    conf:(0.48)}
+        \item \textbf{Rule: 2754}: \textit{VMail Plan=no VMail Message='(-inf-2]' CustServ Calls='(3.5-4.5]' 124 ==> Churn?=TRUE 60    conf:(0.48)}
+    \end{itemize}
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[scale=0.35]{image/sadRule.png}
+            \caption{Rút trích luật từ tập dữ liệu}
+        \end{center}
+    \end{figure}
+
+    \item Nhận xét luật 
+    \begin{itemize}
+        \item Các luật 6, 51, 52 có thuộc tính \textit{Intl Plan = yes} hoặc \textit{VMail Plan = no} và có ảnh hưởng lớn đến kết quả phân lớp như đã dự đoán
+        \item Các luật 2144, 2146 có thuộc tính \textit{Day Mins = '(274.8-inf)'} (Day Mins lớn) và có ảnh hướng lớn đến kết quả phân lớp như đã dự đoán
+        \item Các luật 2752, 2753, 2754 có thuộc tính \textit{CustServ Calls='(3.5-4.5]'} (CustServ Calls cao) và có ảnh hưởng lớn đến kết quả phân lớp
+    \end{itemize}
+\end{itemize}
+\clearpage
+
+\section{Kết luận}
+Từ những ý phân tích trên, ta có thể rút ra 1 vài kết luận như sau
+\begin{itemize}
+    \item Khách hàng có đăng ký Internatianal Plan thì sẽ có tỷ lệ huỷ dịch vụ sẽ cao hơn khách hàng không đăng ký
+    \item Customer Service càng cao thì thì khả năng từ chối dịch vụ càng cao
+    \item Khi Eve mins tăng thì tỷ lệ từ chối dịch vụ tăng nhẹ (không ảnh hưởng nhiều đến phân lớp)
+    \item Service Call tăng thì tỷ lệ từ chối dịch vụ tăng mạnh
+    \item Service Call cao và Day Mins thấp thì tỷ lệ huỷ dịch vụ cao 
+    \item Day Mins cao thì tỷ lệ huỷ dịch vụ cao 
+\end{itemize}
+
+\end{document}
